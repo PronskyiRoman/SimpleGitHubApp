@@ -44,9 +44,7 @@ private extension SessionManager {
     
     private func request<D: Descriptor>(for descriptor: D) async throws -> UrlResponse<D.Response> {
         let request = constructRequest(for: descriptor)
-        print(request)
         let (data, response) = try await session.data(for: request)
-        print(data.getNSStringFromJson)
         return descriptor.response.update(selfBy: data, and: (response as? HTTPURLResponse)?.statusCode)
     }
 }
