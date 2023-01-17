@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class NetworkCore {
+class NetworkCore {
     // MARK: Private Property
     private let session: APISession = .shared
     
