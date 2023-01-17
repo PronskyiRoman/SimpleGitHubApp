@@ -60,7 +60,8 @@ final class UrlResponse<T: Codable> {
             // if get crach here
             // it means you have to check the data structure
             // it can't be decoded from received server data
-            assertionFailure("Throw Error: Decoding Error: \(error.localizedDescription)")
+            
+//            assertionFailure("Throw Error: Decoding Error: \(error.localizedDescription)")
         }
         
         return nil

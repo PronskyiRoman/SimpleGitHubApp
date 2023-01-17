@@ -9,10 +9,12 @@ import Foundation
 
 enum ErrorSource {
     case firstRequest
+    case getRepoRequest
     
     var uniqueErrorCode: Int {
         switch self {
         case .firstRequest: return -10
+        case .getRepoRequest: return -11
         }
     }
     
@@ -22,6 +24,9 @@ enum ErrorSource {
             return "getRequestFails because of decoding Error"
             + " or expected body was nil,"
             + " check the Model and responce for source \(self)"
+            
+        case .getRepoRequest:
+            return "getRepoRequest fails decoding error, model changed check Api"
         }
     }
 }
