@@ -8,6 +8,8 @@
 import Foundation
 
 struct ConstantsStrings {
-    static let homePageDescriptionTitle: String = "What the progect it about:"
+    static let homePageDescriptionTitle: String = "What the project it about:"
     static let homePageLanguageTitle: String = "Project language:"
+    static let emptyResultMessage: String = "We didn't find the repositories you are looking for."
+    static let homeNavigationTitle: String = "Welcome to GH"
 }
