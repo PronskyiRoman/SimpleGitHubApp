@@ -29,7 +29,6 @@ final class HomePageViewModel: ObservableObject, HomePageViewModelProtocol {
         $query.sink(receiveValue: { [weak self] item in
             guard let self else { return }
             self.queryBinding = Binding(get: { item }, set: { self.query = $0 })
-            debugPrint(item)
         }).store(in: &cancellable)
         
         $query.dropFirst()
