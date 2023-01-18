@@ -14,5 +14,5 @@ final class APISession {
 
 extension APISession: SessionManager {
     var session: URLSession { URLSession.shared }
-    var url: String { Constants.baseUrl }
+    var url: String { "https://api.github.com" }
 }
