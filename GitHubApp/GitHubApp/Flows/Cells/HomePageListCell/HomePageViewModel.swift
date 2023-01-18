@@ -10,16 +10,25 @@ import Combine
 import SwiftUI
 
 final class HomePageViewModel: ObservableObject, HomePageViewModelProtocol {
-    var cancellable: Set<AnyCancellable> = Set<AnyCancellable>()
+    // data
+    @Published var data: [HomePageListCellDataModel] = []
+    
+    // actions
     @Published var isFirstLoading: Bool = true
     @Published var isLoading: Bool = false
+    
+    // searching
     @Published var query: String = ""
     var queryBinding: Binding<String>
     var loadingPage: Int = 0
     
-    var service: RepositoryService = .init()
-    @Published var data: [HomePageListCellDataModel] = []
+    // combine
+    var cancellable: Set<AnyCancellable> = Set<AnyCancellable>()
     
+    // servises
+    var service: RepositoryService = .init()
+    
+    // init
     init() {
         queryBinding = .constant("")
         subscribe()
