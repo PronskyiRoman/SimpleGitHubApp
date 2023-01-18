@@ -21,7 +21,7 @@ extension HomePageViewProtocol {
     @ViewBuilder func buildList() -> AnyView {
         AnyView(
             ZStack {
-                Color.black
+                ConstantsColors.appBg
                     .ignoresSafeArea()
                 if viewModel.wrappedValue.isFirstLoading {
                     buildLoadingStateView()

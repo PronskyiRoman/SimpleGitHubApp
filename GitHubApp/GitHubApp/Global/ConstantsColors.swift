@@ -13,4 +13,5 @@ struct ConstantsColors {
     static let cellBg: Color = Color.black.opacity(0.9)
     static let cellShadow: Color = Color.white.opacity(0.4)
     static let tint: Color = .brown
+    static let appBg: Color = .black
 }
