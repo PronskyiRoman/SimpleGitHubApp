@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct HomePageListCellDataModel {
+struct HomePageListCellDataModel: Hashable {
     let name: String
     let description: String
     let profileImageUrl: String

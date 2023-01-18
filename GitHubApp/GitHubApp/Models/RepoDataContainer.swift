@@ -21,7 +21,7 @@ struct RepoDataContainer: Codable {
 
 struct RepoDataModel: Codable {
     let updatedAt, gitUrl, createdAt: String
-    let description: String?
+    let description, language: String?
     let id: Int
     let owner: RepoOwner
     
@@ -30,7 +30,7 @@ struct RepoDataModel: Codable {
         case gitUrl = "git_url"
         case updatedAt = "updated_at"
         case createdAt = "created_at"
-        case id, description, owner
+        case id, description, owner, language
     }
 }
 
