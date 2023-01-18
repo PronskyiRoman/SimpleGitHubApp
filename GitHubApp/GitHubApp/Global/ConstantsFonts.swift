@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ConstantsFonts {
-    static let title: Font = .title3
-    static let title2: Font = .caption
-    static let text: Font = .callout
+    static let title: Font = .title2
+    static let title2: Font = .callout
+    static let text: Font = .caption
+    static let largeText: Font = .title
 }

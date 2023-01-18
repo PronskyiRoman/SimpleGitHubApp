@@ -21,60 +21,71 @@ extension HomePageListCellProtocol {
                 buildUserLabel()
                 buildRepoDescription()
                 buildRepoLanguageLabel()
-                Spacer()
             }
-            .frame(height: 95)
+            .padding(.horizontal)
             Spacer()
         }
             .background(viewModel.wrappedValue.cellBackgroundColor)
             .cornerRadius(8)
-            .shadow(color: viewModel.wrappedValue.cellShadowColor, radius: 5)
+            .shadow(color: viewModel.wrappedValue.cellShadowColor, radius: 3.5)
             .padding(.horizontal, 6))
     }
     
     @ViewBuilder private func buildUserLabel() -> AnyView {
-        AnyView(HStack(alignment: .bottom, spacing: .zero) {
+        AnyView(HStack(alignment: .bottom, spacing: 8) {
             ZStack {
                 if viewModel.wrappedValue.userImage == nil {
                     viewModel.wrappedValue.userImagePlaceholder
+                        .resizable(resizingMode: .stretch)
+                        .frame(width: 25, height: 25)
                 } else {
-                    viewModel.wrappedValue.userImage
+                    viewModel.wrappedValue.userImage?
+                        .resizable(resizingMode: .stretch)
+                        .frame(width: 25, height: 25)
                 }
             }
-            .padding(EdgeInsets(top: 10, leading: 16, bottom: 4, trailing: 8))
+            .clipShape(Circle())
+            
             Text(viewModel.wrappedValue.userName)
                 .foregroundColor(viewModel.wrappedValue.textColor)
                 .font(viewModel.wrappedValue.userNameFont)
-                .padding(.trailing)
-        })
+                .lineLimit(1)
+        }
+            .padding(.top, 10))
     }
     
     @ViewBuilder private func buildRepoDescription() -> AnyView {
         AnyView(VStack(alignment: .leading, spacing: .zero) {
-            Text(viewModel.wrappedValue.descriptionTitle)
-                .foregroundColor(viewModel.wrappedValue.titleColor)
-                .font(viewModel.wrappedValue.titleFont)
-            
-            Text(viewModel.wrappedValue.description)
-                .foregroundColor(viewModel.wrappedValue.textColor)
-                .font(viewModel.wrappedValue.textFont)
+            if !viewModel.wrappedValue.description.isEmpty {
+                Text(viewModel.wrappedValue.descriptionTitle)
+                    .foregroundColor(viewModel.wrappedValue.titleColor)
+                    .font(viewModel.wrappedValue.titleFont)
+                
+                Text(viewModel.wrappedValue.description)
+                    .foregroundColor(viewModel.wrappedValue.textColor)
+                    .font(viewModel.wrappedValue.textFont)
+                    .lineLimit(2)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
         }
-            .padding(.horizontal)
-            .lineLimit(2))
+            .padding(.bottom, viewModel.wrappedValue.userName.isEmpty ? 10 : 0))
     }
     
     @ViewBuilder private func buildRepoLanguageLabel() -> AnyView {
-        AnyView(HStack(spacing: 6) {
-            Text(viewModel.wrappedValue.languageTile)
-                .foregroundColor(viewModel.wrappedValue.titleColor)
-                .font(viewModel.wrappedValue.titleFont)
-            
-            Text(viewModel.wrappedValue.language)
-                .foregroundColor(viewModel.wrappedValue.textColor)
-                .font(viewModel.wrappedValue.textFont)
+        AnyView(HStack(alignment: .bottom, spacing: 6) {
+            if !viewModel.wrappedValue.language.isEmpty {
+                Text(viewModel.wrappedValue.languageTile)
+                    .foregroundColor(viewModel.wrappedValue.titleColor)
+                    .font(viewModel.wrappedValue.titleFont)
+                
+                Text(viewModel.wrappedValue.language)
+                    .foregroundColor(viewModel.wrappedValue.textColor)
+                    .font(viewModel.wrappedValue.textFont)
+                    .bold()
+                    .padding(.bottom, 1)
+            }
         }
-            .font(.caption)
-            .padding(.horizontal)
-            .lineLimit(1))
+            .lineLimit(1)
+            .padding(.bottom, 10))
     }
 }
