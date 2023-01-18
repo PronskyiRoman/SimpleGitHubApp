@@ -8,18 +8,26 @@
 import SwiftUI
 
 struct HomePageView: View, HomePageViewProtocol {
+    // view model
     var viewModel: StateObject<HomePageViewModel>
     
+    // init
+    init(viewModel: HomePageViewModel) {
+        self.viewModel = StateObject(wrappedValue: viewModel)
+    }
+    
+    // body
     var body: some View {
         buildIosBody()
     }
     
+    // builders
     @ViewBuilder func buildIosBody() -> some View {
         buildList()
     }
     
     @ViewBuilder func buildCell(for item: HomePageListCellDataModel) -> AnyView {
-        AnyView(HomePageListCell(viewModel: .init(wrappedValue: .init(model: item))))
+        AnyView(HomePageListCell(viewModel: .init(model: item)))
     }
     
     @ViewBuilder func buildEmptyResponceView() -> AnyView {
@@ -33,6 +41,6 @@ struct HomePageView: View, HomePageViewProtocol {
 
 struct HomePageView_Previews: PreviewProvider {
     static var previews: some View {
-        HomePageView(viewModel: .init(wrappedValue: .init()))
+        HomePageView(viewModel: .init())
     }
 }

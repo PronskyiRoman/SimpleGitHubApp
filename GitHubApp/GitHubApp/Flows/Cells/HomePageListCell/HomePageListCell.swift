@@ -8,12 +8,20 @@
 import SwiftUI
 
 struct HomePageListCell: View, HomePageListCellProtocol {
+    // view model
     var viewModel: StateObject<HomePageListCellViewModel>
     
+    // init
+    init(viewModel: HomePageListCellViewModel) {
+        self.viewModel = StateObject(wrappedValue: viewModel)
+    }
+    
+    // body
     var body: some View {
         buildIosBody()
     }
     
+    // builders
     @ViewBuilder func buildIosBody() -> some View {
         buildCellBody()
     }
@@ -25,7 +33,7 @@ struct HomePageListCell_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             Color.black
-            HomePageListCell(viewModel: .init(wrappedValue: .init(model: HomePageListCell_Previews.model)))
+            HomePageListCell(viewModel: .init(model: HomePageListCell_Previews.model))
         }
     }
 }
