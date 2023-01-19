@@ -10,13 +10,18 @@ import Combine
 import Kingfisher
 
 protocol HomePageListCellViewModelProtocol: ObservableObject {
+    // data
     var userName: String { get }
     var description: String { get }
     var language: String { get }
     var userImage: Image? { get }
+    var created: Date? { get }
+    var updated: Date? { get }
     
     // Constants
     var descriptionTitle: String { get }
+    var dateCreatedTitle: String { get }
+    var dateUpdatedTitle: String { get }
     var languageTile: String { get }
     var userImagePlaceholder: Image { get }
     

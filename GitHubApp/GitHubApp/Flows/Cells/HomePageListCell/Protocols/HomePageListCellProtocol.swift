@@ -21,6 +21,7 @@ extension HomePageListCellProtocol {
                 buildUserLabel()
                 buildRepoDescription()
                 buildRepoLanguageLabel()
+                buildDate()
             }
             .padding(.horizontal)
             Spacer()
@@ -67,8 +68,7 @@ extension HomePageListCellProtocol {
                     .lineLimit(2)
                     .fixedSize(horizontal: false, vertical: true)
             }
-        }
-            .padding(.bottom, viewModel.wrappedValue.userName.isEmpty ? 10 : 0))
+        })
     }
     
     @ViewBuilder private func buildRepoLanguageLabel() -> AnyView {
@@ -85,7 +85,33 @@ extension HomePageListCellProtocol {
                     .padding(.bottom, 1)
             }
         }
-            .lineLimit(1)
-            .padding(.bottom, 10))
+            .lineLimit(1))
+    }
+    
+    @ViewBuilder private func buildDateLabel(_ isCreated: Bool, text: String) -> some View  {
+        HStack(alignment: .bottom, spacing: 6) {
+            Text(isCreated ? viewModel.wrappedValue.dateCreatedTitle : viewModel.wrappedValue.dateUpdatedTitle)
+                .foregroundColor(viewModel.wrappedValue.titleColor)
+                .font(viewModel.wrappedValue.textFont)
+                .bold()
+            
+            Text(text)
+                .foregroundColor(viewModel.wrappedValue.textColor)
+                .font(viewModel.wrappedValue.textFont)
+        }
+        .lineLimit(1)
+    }
+    
+    @ViewBuilder private func buildDate() -> some View {
+        VStack(alignment: .leading, spacing: 5) {
+            if let created = viewModel.wrappedValue.created?.iosFullString {
+                buildDateLabel(true, text: created)
+            }
+            
+            if let updated = viewModel.wrappedValue.updated?.iosFullString {
+                buildDateLabel(false, text: updated)
+            }
+        }
+        .padding(.bottom, 10)
     }
 }

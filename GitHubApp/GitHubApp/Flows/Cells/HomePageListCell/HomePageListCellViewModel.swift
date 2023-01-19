@@ -13,6 +13,8 @@ final class HomePageListCellViewModel: ObservableObject, HomePageListCellViewMod
     var userName: String
     var description: String
     var language: String
+    var created: Date?
+    var updated: Date?
     @Published var userImage: Image?
     @Published var userImageUrl: String?
     
@@ -20,6 +22,8 @@ final class HomePageListCellViewModel: ObservableObject, HomePageListCellViewMod
     var descriptionTitle: String = ConstantsStrings.homePageDescriptionTitle
     var languageTile: String = ConstantsStrings.homePageLanguageTitle
     var userImagePlaceholder: Image = Image(ConstantsImages.cellPlaceholder)
+    var dateCreatedTitle: String = ConstantsStrings.createdAt
+    var dateUpdatedTitle: String = ConstantsStrings.updatedAt
     
     // UI
     var titleColor: Color = ConstantsColors.title
@@ -39,6 +43,8 @@ final class HomePageListCellViewModel: ObservableObject, HomePageListCellViewMod
         self.description = model.description
         self.language = model.language
         self.userImageUrl = model.profileImageUrl
+        self.created = model.created
+        self.updated = model.updated
         subscribe()
     }
     
