@@ -20,51 +20,28 @@ protocol HomePageViewProtocol {
 
 extension HomePageViewProtocol {
     @ViewBuilder func buildList() -> AnyView {
-        AnyView(
-            ZStack {
-                ConstantsColors.appBg
-                    .ignoresSafeArea()
-                if viewModel.wrappedValue.isFirstLoading {
-                    buildLoadingStateView()
-                } else if !viewModel.wrappedValue.isFirstLoading && viewModel.wrappedValue.data.isEmpty {
-                    ScrollView {
-                        buildEmptyResponceView()
-                    }
-                    .refreshable {
-                        await viewModel.wrappedValue.onPullToRefreshGesture()
-                    }
-                } else if !viewModel.wrappedValue.data.isEmpty {
-                    List(viewModel.wrappedValue.data, id: \.self) { item in
-                        buildCellView(for: item)
-                            .listRowBackground(Color.clear)
-                            .listRowSeparator(.hidden)
-                            .listRowInsets(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 4))
-                            .onAppear {
-                                viewModel.wrappedValue.fetchNextPageDataIfNeedIt(item)
-                            }
-                            .onTapGesture {
-                                viewModel.wrappedValue.onCellTapGesture(coordinator, item: item)
-                            }
-                    }
-                    .scrollContentBackground(.hidden)
-                    .listStyle(.grouped)
-                    .refreshable {
-                        await viewModel.wrappedValue.onPullToRefreshGesture()
-                    }
-                }
-                   
+        AnyView(ZStack {
+            // background
+            buildBackgroundView()
+            
+            // screen state
+            if viewModel.wrappedValue.isFirstLoading {
+                buildLoadingStateView()
+            } else if !viewModel.wrappedValue.isFirstLoading && viewModel.wrappedValue.data.isEmpty {
+                buildEmptyView()
+            } else if !viewModel.wrappedValue.data.isEmpty {
+                buildFilledListView()
             }
-                .onAppear {
-                    viewModel.wrappedValue.preFetchData()
-                }
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationTitle(ConstantsStrings.homeNavigationTitle)
-                .searchable(text: viewModel.wrappedValue.queryBinding, placement: .navigationBarDrawer(displayMode: .always))
-                .onSubmit(of: .search) {
-                    viewModel.wrappedValue.fetchData(with: viewModel.wrappedValue.query)
-                }
-                .safari(url: viewModel.wrappedValue.safariUrl, isPresented: viewModel.wrappedValue.isSafariPresentedBinding)
-        )
+        }
+            .onAppear {
+                viewModel.wrappedValue.preFetchData()
+            }
+                // navigation bar
+            .navBar(title: ConstantsStrings.homeNavigationTitle,
+                    searchText: viewModel.wrappedValue.queryBinding,
+                    onSubmitOfSearch: { viewModel.wrappedValue.fetchData(with: viewModel.wrappedValue.query) })
+                // safari view
+            .safari(url: viewModel.wrappedValue.safariUrl, isPresented: viewModel.wrappedValue.isSafariPresentedBinding))
     }
     
     @ViewBuilder private func buildCellView(for item: HomePageListCellDataModel) -> some View {
@@ -86,5 +63,39 @@ extension HomePageViewProtocol {
         }
         .frame(height: 60)
         .frame(maxWidth: .infinity)
+    }
+    
+    @ViewBuilder private func buildEmptyView() -> some View {
+        ScrollView {
+            buildEmptyResponceView()
+        }
+        .refreshable {
+            await viewModel.wrappedValue.onPullToRefreshGesture()
+        }
+    }
+    
+    @ViewBuilder private func buildFilledListView() -> some View {
+        List(viewModel.wrappedValue.data, id: \.self) { item in
+            buildCellView(for: item)
+                .listRowBackground(Color.clear)
+                .listRowSeparator(.hidden)
+                .listRowInsets(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 4))
+                .onAppear {
+                    viewModel.wrappedValue.fetchNextPageDataIfNeedIt(item)
+                }
+                .onTapGesture {
+                    viewModel.wrappedValue.onCellTapGesture(coordinator, item: item)
+                }
+        }
+        .scrollContentBackground(.hidden)
+        .listStyle(.grouped)
+        .refreshable {
+            await viewModel.wrappedValue.onPullToRefreshGesture()
+        }
+    }
+    
+    @ViewBuilder private func buildBackgroundView() -> some View {
+        ConstantsColors.appBg
+            .ignoresSafeArea()
     }
 }
