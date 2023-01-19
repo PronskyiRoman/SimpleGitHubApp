@@ -18,4 +18,5 @@
 ### Libraries:
 * Kingfisher Loading images from the server
 
-### Architecture MVVM
+### Architecture:
+* MVVM
