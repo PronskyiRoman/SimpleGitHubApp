@@ -13,8 +13,6 @@ struct GetRepoDataContainer: Descriptor {
     var metgod: HttpMethod { .get }
     var headers: [String : String] {
         ["Accept": "application/vnd.github+json",
-         //-H "Authorization: Bearer <YOUR-TOKEN>"\
-//         "": "",
          "X-GitHub-Api-Version": "2022-11-28"]
     }
     var queryItems: [String : String]
