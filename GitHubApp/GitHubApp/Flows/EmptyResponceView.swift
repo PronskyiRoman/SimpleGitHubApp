@@ -12,11 +12,7 @@ struct EmptyResponceView: View {
         ZStack {
             VStack(spacing: 15) {
                 Text(ConstantsStrings.emptyResultMessage)
-                    .multilineTextAlignment(.center)
-                    .font(ConstantsFonts.largeText)
-                    .bold()
-                    .foregroundColor(ConstantsColors.title)
-                    .padding()
+                    .defaultWarningTextStyle()
             }
             .frame(height: UIScreen.main.bounds.height / 1.7)
         }
