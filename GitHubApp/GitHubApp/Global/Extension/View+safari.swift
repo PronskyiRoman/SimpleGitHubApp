@@ -18,16 +18,16 @@ struct SafariWithAlert: ViewModifier {
     var isPresented: Binding<Bool>
     
     func body(content: Content) -> some View {
-        guard let url = url else {
-            return AnyView(content.alert(isPresented: isPresented) {
-                Alert(title: Text("Error"), message: Text(ConstantsStrings.errorPageMessage), dismissButton: .default(Text("Ok")))
-            })
+        content.fullScreenCover(isPresented: isPresented) {
+            if let url = url {
+                SafariView(url: url)
+                    .ignoresSafeArea()
+            } else {
+                content.alert(isPresented: isPresented) {
+                    Alert(title: Text("Error"), message: Text(ConstantsStrings.errorPageMessage), dismissButton: .default(Text("Ok")))
+                }
+            }
         }
-        
-        return AnyView(content.fullScreenCover(isPresented: isPresented) {
-            SafariView(url: url)
-                .ignoresSafeArea()
-        })
     }
 }
 
