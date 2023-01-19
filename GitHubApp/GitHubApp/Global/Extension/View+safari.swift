@@ -13,7 +13,7 @@ extension View {
     }
 }
 
-struct SafariWithAlert: ViewModifier {
+private struct SafariWithAlert: ViewModifier {
     var url: URL?
     var isPresented: Binding<Bool>
     

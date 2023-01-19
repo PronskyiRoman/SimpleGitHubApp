@@ -11,11 +11,7 @@ struct ErrorPage: View {
     var body: some View {
         ZStack {
             Text(ConstantsStrings.errorPageMessage)
-                .multilineTextAlignment(.center)
-                .font(ConstantsFonts.largeText)
-                .bold()
-                .foregroundColor(ConstantsColors.title)
-                .padding()
+                .defaultWarningTextStyle()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }

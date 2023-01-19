@@ -39,6 +39,8 @@
 		CF247827297709190055164E /* ConstantsImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF247826297709190055164E /* ConstantsImages.swift */; };
 		CF730EA129793B6A00F1AE0D /* View+safari.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF730EA029793B6A00F1AE0D /* View+safari.swift */; };
 		CF730EAD29796E5300F1AE0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF730EAC29796E5300F1AE0D /* LaunchScreen.storyboard */; };
+		CF730EAF297977DC00F1AE0D /* View+navBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF730EAE297977DC00F1AE0D /* View+navBar.swift */; };
+		CF730EB129797AC700F1AE0D /* Text+defaultWarningTextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF730EB029797AC700F1AE0D /* Text+defaultWarningTextStyle.swift */; };
 		CFF2C8D62977E59600F8423C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = CFF2C8D52977E59600F8423C /* Kingfisher */; };
 		CFF2C8D82977EB8C00F8423C /* HomePageListCellDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF2C8D72977EB8C00F8423C /* HomePageListCellDataModel.swift */; };
 		CFF2C8DA297805E000F8423C /* EmptyResponceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF2C8D9297805E000F8423C /* EmptyResponceView.swift */; };
@@ -99,6 +101,8 @@
 		CF730EA029793B6A00F1AE0D /* View+safari.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+safari.swift"; sourceTree = "<group>"; };
 		CF730EA8297967B300F1AE0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CF730EAC29796E5300F1AE0D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CF730EAE297977DC00F1AE0D /* View+navBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+navBar.swift"; sourceTree = "<group>"; };
+		CF730EB029797AC700F1AE0D /* Text+defaultWarningTextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+defaultWarningTextStyle.swift"; sourceTree = "<group>"; };
 		CFF2C8D72977EB8C00F8423C /* HomePageListCellDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageListCellDataModel.swift; sourceTree = "<group>"; };
 		CFF2C8D9297805E000F8423C /* EmptyResponceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyResponceView.swift; sourceTree = "<group>"; };
 		CFF2C8DB297805EE00F8423C /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -223,6 +227,8 @@
 			children = (
 				CF2477DE297592470055164E /* Data+getNSStringFromJson.swift */,
 				CF730EA029793B6A00F1AE0D /* View+safari.swift */,
+				CF730EAE297977DC00F1AE0D /* View+navBar.swift */,
+				CF730EB029797AC700F1AE0D /* Text+defaultWarningTextStyle.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -477,6 +483,7 @@
 				CF2477FF2976AF1E0055164E /* GetRepoDataContainer.swift in Sources */,
 				CF2478022976AF380055164E /* RepoDataContainer.swift in Sources */,
 				CF2478212976F31D0055164E /* HomePageListCellViewModelProtocol.swift in Sources */,
+				CF730EB129797AC700F1AE0D /* Text+defaultWarningTextStyle.swift in Sources */,
 				CF24781F2976F30F0055164E /* HomePageListCellViewModel.swift in Sources */,
 				CFF2C8EA297848EE00F8423C /* CoordinatorPath.swift in Sources */,
 				CF2478192976F0820055164E /* HomePageViewModel.swift in Sources */,
@@ -493,6 +500,7 @@
 				CF2477D729758F4F0055164E /* Descriptor.swift in Sources */,
 				CF2477DB2975919A0055164E /* NetworkError.swift in Sources */,
 				CF2477E629759BDC0055164E /* APISession.swift in Sources */,
+				CF730EAF297977DC00F1AE0D /* View+navBar.swift in Sources */,
 				CFF2C8EE2978522500F8423C /* ErrorPage.swift in Sources */,
 				CF2477EA2975A0900055164E /* NetworkCore.swift in Sources */,
 				CFF2C8E0297845E000F8423C /* ContentViewProtocol.swift in Sources */,
