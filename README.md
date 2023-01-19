@@ -1,13 +1,13 @@
 # SimpleGitHubApp
 
-Description: App for help users do search across the GitHub
+##Description: App for help users do search across the GitHub
 
-Requirements:
+###Requirements:###
 * Text field for search phrases
 * List of responces
 * By tap on cell opens repository page in web browser.
 
--Technology Stack:
+###Technology Stack:###
 * SwiftUI
 * Combine
 * Networking custom UrlSession with async await
@@ -15,7 +15,7 @@ Requirements:
 * Navigation Coordinator with NavigationPath and NavigationStack
 * UnitTest
 
--Libraries:
+###Libraries:###
 * Kingfisher Loading images from the server
 
--Architecture MVVM
+###Architecture MVVM
