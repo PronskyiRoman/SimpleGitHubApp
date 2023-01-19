@@ -41,6 +41,8 @@
 		CF730EAD29796E5300F1AE0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF730EAC29796E5300F1AE0D /* LaunchScreen.storyboard */; };
 		CF730EAF297977DC00F1AE0D /* View+navBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF730EAE297977DC00F1AE0D /* View+navBar.swift */; };
 		CF730EB129797AC700F1AE0D /* Text+defaultWarningTextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF730EB029797AC700F1AE0D /* Text+defaultWarningTextStyle.swift */; };
+		CF730EB329798EDE00F1AE0D /* Date+iosFullString.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF730EB229798EDE00F1AE0D /* Date+iosFullString.swift */; };
+		CF730EB5297994DD00F1AE0D /* String+iosFullDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF730EB4297994DD00F1AE0D /* String+iosFullDate.swift */; };
 		CFF2C8D62977E59600F8423C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = CFF2C8D52977E59600F8423C /* Kingfisher */; };
 		CFF2C8D82977EB8C00F8423C /* HomePageListCellDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF2C8D72977EB8C00F8423C /* HomePageListCellDataModel.swift */; };
 		CFF2C8DA297805E000F8423C /* EmptyResponceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF2C8D9297805E000F8423C /* EmptyResponceView.swift */; };
@@ -103,6 +105,8 @@
 		CF730EAC29796E5300F1AE0D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF730EAE297977DC00F1AE0D /* View+navBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+navBar.swift"; sourceTree = "<group>"; };
 		CF730EB029797AC700F1AE0D /* Text+defaultWarningTextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+defaultWarningTextStyle.swift"; sourceTree = "<group>"; };
+		CF730EB229798EDE00F1AE0D /* Date+iosFullString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+iosFullString.swift"; sourceTree = "<group>"; };
+		CF730EB4297994DD00F1AE0D /* String+iosFullDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+iosFullDate.swift"; sourceTree = "<group>"; };
 		CFF2C8D72977EB8C00F8423C /* HomePageListCellDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageListCellDataModel.swift; sourceTree = "<group>"; };
 		CFF2C8D9297805E000F8423C /* EmptyResponceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyResponceView.swift; sourceTree = "<group>"; };
 		CFF2C8DB297805EE00F8423C /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -229,6 +233,8 @@
 				CF730EA029793B6A00F1AE0D /* View+safari.swift */,
 				CF730EAE297977DC00F1AE0D /* View+navBar.swift */,
 				CF730EB029797AC700F1AE0D /* Text+defaultWarningTextStyle.swift */,
+				CF730EB229798EDE00F1AE0D /* Date+iosFullString.swift */,
+				CF730EB4297994DD00F1AE0D /* String+iosFullDate.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -494,6 +500,7 @@
 				CFF2C8E8297848C100F8423C /* Coordinator.swift in Sources */,
 				CF730EA129793B6A00F1AE0D /* View+safari.swift in Sources */,
 				CF2477A8297587720055164E /* GitHubAppApp.swift in Sources */,
+				CF730EB5297994DD00F1AE0D /* String+iosFullDate.swift in Sources */,
 				CFF2C8D82977EB8C00F8423C /* HomePageListCellDataModel.swift in Sources */,
 				CFF2C8E2297846D400F8423C /* ContentViewModelProtocol.swift in Sources */,
 				CF24780F2976E58E0055164E /* HomePageView.swift in Sources */,
@@ -504,6 +511,7 @@
 				CFF2C8EE2978522500F8423C /* ErrorPage.swift in Sources */,
 				CF2477EA2975A0900055164E /* NetworkCore.swift in Sources */,
 				CFF2C8E0297845E000F8423C /* ContentViewProtocol.swift in Sources */,
+				CF730EB329798EDE00F1AE0D /* Date+iosFullString.swift in Sources */,
 				CF2477E22975967F0055164E /* HttpMethod.swift in Sources */,
 				CFF2C8DA297805E000F8423C /* EmptyResponceView.swift in Sources */,
 				CF2477D929758FA10055164E /* UrlResponse.swift in Sources */,

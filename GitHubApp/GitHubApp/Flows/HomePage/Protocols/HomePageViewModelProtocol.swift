@@ -55,7 +55,7 @@ extension HomePageViewModelProtocol {
         let items = result.items.map({
             HomePageListCellDataModel(name: $0.owner.login, description: $0.description ?? "",
                                       profileImageUrl: $0.owner.avatarUrl, language: $0.language ?? "",
-                                      repoUrl: $0.gitUrl)
+                                      repoUrl: $0.gitUrl, created: $0.createdAt.iosFullDate, updated: $0.updatedAt.iosFullDate)
         })
         
         items.forEach({ item in
