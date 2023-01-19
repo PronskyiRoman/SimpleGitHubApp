@@ -27,7 +27,7 @@ struct RepoDataModel: Codable {
     
     
     enum CodingKeys: String, CodingKey {
-        case gitUrl = "git_url"
+        case gitUrl = "html_url"
         case updatedAt = "updated_at"
         case createdAt = "created_at"
         case id, description, owner, language

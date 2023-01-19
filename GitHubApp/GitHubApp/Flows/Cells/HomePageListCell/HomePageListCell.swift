@@ -29,7 +29,7 @@ struct HomePageListCell: View, HomePageListCellProtocol {
 
 struct HomePageListCell_Previews: PreviewProvider {
     static let model = HomePageListCellDataModel(name: "Roman", description: "long Text",
-                                                 profileImageUrl: "someURL", language: "Swift")
+                                                 profileImageUrl: "someURL", language: "Swift", repoUrl: "url")
     static var previews: some View {
         ZStack {
             Color.black

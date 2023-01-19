@@ -12,4 +12,5 @@ struct HomePageListCellDataModel: Hashable {
     let description: String
     let profileImageUrl: String
     let language: String
+    let repoUrl: String
 }

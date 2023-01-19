@@ -12,10 +12,13 @@ import SwiftUI
 final class HomePageViewModel: ObservableObject, HomePageViewModelProtocol {
     // data
     @Published var data: [HomePageListCellDataModel] = []
+    var safariUrl: URL?
     
     // actions
     @Published var isFirstLoading: Bool = true
     @Published var isLoading: Bool = false
+    @Published var isSafariPresented: Bool = false
+    var isSafariPresentedBinding: Binding<Bool>
     
     // searching
     @Published var query: String = ""
@@ -31,6 +34,7 @@ final class HomePageViewModel: ObservableObject, HomePageViewModelProtocol {
     // init
     init() {
         queryBinding = .constant("")
+        isSafariPresentedBinding = .constant(false)
         subscribe()
     }
     
@@ -46,5 +50,12 @@ final class HomePageViewModel: ObservableObject, HomePageViewModelProtocol {
                 guard let self else { return }
                 self.fetchData(with: value)
             }).store(in: &cancellable)
+        
+        $isSafariPresented.sink(receiveValue: { [weak self] item in
+            guard let self else { return }
+            self.isSafariPresentedBinding = Binding(get: { item }, set: { self.isSafariPresented = $0 })
+            guard !item else { return }
+            self.onDismissSafari()
+        }).store(in: &cancellable)
     }
 }

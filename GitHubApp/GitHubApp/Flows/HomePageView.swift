@@ -10,6 +10,7 @@ import SwiftUI
 struct HomePageView: View, HomePageViewProtocol {
     // view model
     var viewModel: StateObject<HomePageViewModel>
+    @EnvironmentObject var coordinator: Coordinator
     
     // init
     init(viewModel: HomePageViewModel) {

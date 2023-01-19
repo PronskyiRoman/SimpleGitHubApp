@@ -10,6 +10,7 @@ import SwiftUI
 protocol HomePageViewProtocol {
     associatedtype ViewModel: HomePageViewModelProtocol
     var viewModel: StateObject<ViewModel> { get }
+    var coordinator: Coordinator { get }
     
     func buildList() -> AnyView
     func buildCell(for item: HomePageListCellDataModel) -> AnyView
@@ -30,7 +31,7 @@ extension HomePageViewProtocol {
                         buildEmptyResponceView()
                     }
                     .refreshable {
-                        await viewModel.wrappedValue.preFetchData()
+                        await viewModel.wrappedValue.onPullToRefreshGesture()
                     }
                 } else if !viewModel.wrappedValue.data.isEmpty {
                     List(viewModel.wrappedValue.data, id: \.self) { item in
@@ -41,11 +42,14 @@ extension HomePageViewProtocol {
                             .onAppear {
                                 viewModel.wrappedValue.fetchNextPageDataIfNeedIt(item)
                             }
+                            .onTapGesture {
+                                viewModel.wrappedValue.onCellTapGesture(coordinator, item: item)
+                            }
                     }
                     .scrollContentBackground(.hidden)
                     .listStyle(.grouped)
                     .refreshable {
-                        await viewModel.wrappedValue.fetchData(with: viewModel.wrappedValue.query)
+                        await viewModel.wrappedValue.onPullToRefreshGesture()
                     }
                 }
                    
@@ -59,13 +63,12 @@ extension HomePageViewProtocol {
                 .onSubmit(of: .search) {
                     viewModel.wrappedValue.fetchData(with: viewModel.wrappedValue.query)
                 }
+                .safari(url: viewModel.wrappedValue.safariUrl, isPresented: viewModel.wrappedValue.isSafariPresentedBinding)
         )
     }
     
     @ViewBuilder private func buildCellView(for item: HomePageListCellDataModel) -> some View {
-        if let index = viewModel.wrappedValue.data.firstIndex(where: { $0.hashValue == item.hashValue }), index > 8
-            && viewModel.wrappedValue.isLoading
-            && index == viewModel.wrappedValue.data.count - 1 {
+        if viewModel.wrappedValue.allowBottomLoadingView(for: item) {
             VStack(spacing: .zero) {
                 buildCell(for: item)
                 buildBottomLoadingView()
